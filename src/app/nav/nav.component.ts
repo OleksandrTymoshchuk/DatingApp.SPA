@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
   model: User = new User();
 
-  constructor(private authService: AuthService, private alerify: AlertifyService) { }
+  constructor(public authService: AuthService, private alerify: AlertifyService) { }
 
   ngOnInit() {
   }
