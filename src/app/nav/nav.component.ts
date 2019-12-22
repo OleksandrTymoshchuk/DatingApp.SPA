@@ -1,8 +1,8 @@
 import { AlertifyService } from './../_services/alertify.service';
-import { User } from './../models/User';
 import { AuthService } from './../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserForAuthentication } from '../_models/userForAuthentication';
 
 @Component({
   selector: 'app-nav',
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  model: User = new User();
+  user: UserForAuthentication = new UserForAuthentication();
 
   constructor(public authService: AuthService, private alerify: AlertifyService,
               private router: Router) { }
@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
   }
 
   login() {
-  this.authService.login(this.model).subscribe(next => {
+  this.authService.login(this.user).subscribe(next => {
     this.alerify.success('Logged in successfully');
   }, error => {
     this.alerify.error('Failed to login');

@@ -1,9 +1,9 @@
 import { environment } from './../../environments/environment';
-import { User } from './../models/User';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import { UserForAuthentication } from '../_models/userForAuthentication';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class AuthService {
 
 constructor(private http: HttpClient) { }
 
-login(model: User) {
+login(model: UserForAuthentication) {
   return this.http.post(this.baseUrl + 'login', model)
     .pipe(
       map((response: any) => {
@@ -28,7 +28,7 @@ login(model: User) {
     );
 }
 
-register(model: User) {
+register(model: UserForAuthentication) {
   return this.http.post(this.baseUrl + 'register', model);
 }
 
