@@ -1,3 +1,8 @@
+import { MemberListResolver } from './_resolvers/member-list.relosver';
+import { MemberDetailResolver } from './_resolvers/member-detail.relosver';
+import { UserService } from './_services/user.service';
+import { AuthGuard } from './_guards/auth.guard';
+import { AlertifyService } from './_services/alertify.service';
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './_services/auth.service';
@@ -56,7 +61,12 @@ export function tokenGetter() {
    ],
    providers: [
       AuthService,
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
+      AlertifyService,
+      AuthGuard,
+      UserService,
+      MemberDetailResolver,
+      MemberListResolver
    ],
    bootstrap: [
       AppComponent
