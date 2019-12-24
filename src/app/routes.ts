@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { Routes } from '@angular/router';
 import { AuthGuard } from './_guards/auth.guard';
 import { MemberListComponent } from './members/member-list/member-list.component';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes-guard';
 
 export const appRoutes: Routes = [
          { path: 'home', component: HomeComponent },
@@ -29,7 +30,7 @@ export const appRoutes: Routes = [
                resolve: { user: MemberDetailResolver }
              },
              { path: 'member/edit', component: MemberEditComponent,
-               resolve: { user: MemberEditResolver }
+               resolve: { user: MemberEditResolver }, canDeactivate: [PreventUnsavedChanges]
              },
              { path: 'messages', component: MessagesComponent },
              { path: 'lists', component: ListsComponent }
