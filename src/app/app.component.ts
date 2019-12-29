@@ -1,3 +1,4 @@
+import { User } from './_models/user';
 import { AuthService } from './_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,6 +13,11 @@ export class AppComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    const user: User = JSON.parse(localStorage.getItem('user'));
     this.authService.decodeJwtToken();
+
+    if (user) {
+      this.authService.currentUser = user;
+    }
   }
 }
