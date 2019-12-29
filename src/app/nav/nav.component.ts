@@ -11,11 +11,13 @@ import { UserForAuthentication } from '../_models/userForAuthentication';
 })
 export class NavComponent implements OnInit {
   user: UserForAuthentication = new UserForAuthentication();
+  photoUrl: string;
 
   constructor(public authService: AuthService, private alerify: AlertifyService,
               private router: Router) { }
 
   ngOnInit() {
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   login() {
