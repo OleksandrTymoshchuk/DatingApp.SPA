@@ -1,3 +1,5 @@
+import { AdminService } from './_services/admin.service';
+import { PhotoManagementComponent } from './admin/photo-management/photo-management.component';
 import { HasRoleDirective } from './_directives/hasRole.directive';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
@@ -38,6 +40,7 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes-guard';
 import { FileUploadModule } from 'ng2-file-upload';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -67,7 +70,9 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       PhotoEditorComponent,
       TimeAgoPipe,
       AdminPanelComponent,
-      HasRoleDirective
+      HasRoleDirective,
+      UserManagementComponent,
+      PhotoManagementComponent
    ],
    imports: [
       BrowserModule,
@@ -103,6 +108,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberEditResolver,
       ListsResolver,
       MessagesResolver,
+      AdminService,
       PreventUnsavedChanges,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
    ],
