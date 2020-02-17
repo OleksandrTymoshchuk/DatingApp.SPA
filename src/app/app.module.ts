@@ -1,3 +1,4 @@
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 import { MessagesResolver } from './_resolvers/messages.relosver';
 import { ListsResolver } from './_resolvers/lists.resolver';
@@ -63,7 +64,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberEditComponent,
       MemberMessagesComponent,
       PhotoEditorComponent,
-      TimeAgoPipe
+      TimeAgoPipe,
+      AdminPanelComponent
    ],
    imports: [
       BrowserModule,

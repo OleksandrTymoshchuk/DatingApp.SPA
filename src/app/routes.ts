@@ -1,3 +1,4 @@
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { MessagesResolver } from './_resolvers/messages.relosver';
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { MemberEditResolver } from './_resolvers/member-edit.relosver';
@@ -35,7 +36,8 @@ export const appRoutes: Routes = [
                resolve: { user: MemberEditResolver }, canDeactivate: [PreventUnsavedChanges]
              },
              { path: 'messages', component: MessagesComponent, resolve: {messages: MessagesResolver} },
-             { path: 'lists', component: ListsComponent, resolve: { users : ListsResolver } }
+             { path: 'lists', component: ListsComponent, resolve: { users : ListsResolver } },
+             { path: 'admin', component: AdminPanelComponent }
            ]
          },
          { path: '**', redirectTo: 'home', pathMatch: 'full' }
