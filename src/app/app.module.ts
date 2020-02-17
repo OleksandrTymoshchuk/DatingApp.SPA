@@ -1,3 +1,4 @@
+import { HasRoleDirective } from './_directives/hasRole.directive';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 import { MessagesResolver } from './_resolvers/messages.relosver';
@@ -65,7 +66,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberMessagesComponent,
       PhotoEditorComponent,
       TimeAgoPipe,
-      AdminPanelComponent
+      AdminPanelComponent,
+      HasRoleDirective
    ],
    imports: [
       BrowserModule,
