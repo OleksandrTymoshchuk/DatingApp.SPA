@@ -37,7 +37,7 @@ export const appRoutes: Routes = [
              },
              { path: 'messages', component: MessagesComponent, resolve: {messages: MessagesResolver} },
              { path: 'lists', component: ListsComponent, resolve: { users : ListsResolver } },
-             { path: 'admin', component: AdminPanelComponent }
+             { path: 'admin', component: AdminPanelComponent, data: { roles: ['Admin', 'Moderator']}}
            ]
          },
          { path: '**', redirectTo: 'home', pathMatch: 'full' }
